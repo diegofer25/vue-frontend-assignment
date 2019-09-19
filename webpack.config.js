@@ -73,6 +73,14 @@ module.exports = {
           // see postcss.config.js for options
           'postcss-loader',
           'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              data: `
+                @import "Styles/colors-variables.scss";
+              `
+            }
+          }
         ]
       },
       {

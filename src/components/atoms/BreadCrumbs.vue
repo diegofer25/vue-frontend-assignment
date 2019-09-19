@@ -38,13 +38,13 @@ export default {
   li {
     display: inline;
     a {
-      color: grey;
+      color: $grey;
       text-transform: uppercase;
       text-decoration: none;
     }
     &+li:before {
       padding: 8px;
-      color: black;
+      color: $grey;
       content: "/\00a0";
     }
   }
