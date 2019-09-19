@@ -1,7 +1,8 @@
 $colors-list: (("primary", $primary),
   ("lightgrey", $lightgrey),
   ("grey", $grey),
-  ("black", $black));
+  ("black", $black),
+  ("secondary", $secondary));
 
 @each $color in $colors-list {
   $name: nth($color, 1);
