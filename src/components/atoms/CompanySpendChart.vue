@@ -5,8 +5,8 @@
     </div>
     <div class="chart flex-item grow pa-md">
       <img
-        :src="$loadImage(history.chart.image, 'svg', true)"
-        :alt="history.chart.image"
+        :src="$loadImage(spend.chart.image, 'svg', true)"
+        :alt="spend.chart.image"
       />
     </div>
   </div>
@@ -17,7 +17,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'CompanySpendChart',
   computed: {
-    ...mapGetters('app', { history: 'companyHistory' })
+    ...mapGetters('app', { spend: 'companySpend' })
   },
 }
 </script>

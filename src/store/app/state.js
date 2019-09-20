@@ -45,17 +45,17 @@ export default {
       image: 'logo-copy',
       name: 'Oracle Corporation (AWS)'
     }],
-    spendHistory: {
+    spend: {
       chart: {
         image: 'chart',
         ext: 'svg'
       },
-      spendLogs: [{
-        company: '',
+      history: [{
+        name: 'Google Cloud Platform',
         value: '$500,000',
         image: 'logo-copy-3'
       }, {
-        company: '',
+        name: 'CentureLink CDN',
         value: '$300,000',
         image: 'logo-copy-2'
       }]

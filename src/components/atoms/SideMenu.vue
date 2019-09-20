@@ -63,7 +63,7 @@ aside.side-menu {
       height: 0;
       width: 3px;
       bottom: 50%;
-      left: 0;
+      left: -2px;
       position: absolute;
       background: $primary;
       transition: 350ms ease all;

@@ -11,7 +11,7 @@ export default {
     return selectedCompany.similars
   },
 
-  companyHistory (state, { selectedCompany }) {
-    return selectedCompany.spendHistory
+  companySpend (state, { selectedCompany }) {
+    return selectedCompany.spend
   }
 }
