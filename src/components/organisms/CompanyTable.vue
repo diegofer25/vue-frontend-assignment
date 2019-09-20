@@ -12,5 +12,6 @@ export default {
 
 <style lang="scss" scoped>
 .company-table {
+  width: 900px;
 }
 </style>

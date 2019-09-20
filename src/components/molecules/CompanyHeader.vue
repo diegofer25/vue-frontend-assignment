@@ -58,7 +58,7 @@ export default {
       position: absolute;
       right: 0;
       top: 32px;
-      background-image: linear-gradient(to right, $transparent, $skyblue, $skyblue, $skyblue, $skyblue);
+      background-image: linear-gradient(to right, $transparent, $background, $background, $background, $background);
       padding-left: 30px;
     }
     .view-less {

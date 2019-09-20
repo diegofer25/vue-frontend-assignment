@@ -1,7 +1,13 @@
 <template>
-  <div class="company-spend-chart flex column">
+  <div class="company-spend-chart flex column bg-white">
     <div class="title flex row pa-md">
       <span v-text="'Similar Spend History'"></span>
+    </div>
+    <div class="chart flex-item grow pa-md">
+      <img
+        :src="$loadImage(history.chart.image, 'svg', true)"
+        :alt="history.chart.image"
+      />
     </div>
   </div>
 </template>
@@ -9,24 +15,25 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  name: 'COmpanySpendChart',
+  name: 'CompanySpendChart',
   computed: {
-    ...mapGetters('app', { similars: 'companySimilars' })
+    ...mapGetters('app', { history: 'companyHistory' })
   },
 }
 </script>
 
 <style lang="scss" scoped>
 .company-spend-chart {
-  background-color: $white;
   border: 1px $lightblue solid;
   .title {
     text-transform: uppercase;
     border-bottom: 1px $lightblue solid;
+    white-space: nowrap;
   }
   img {
-    width: 60px;
-    height: 60px;
+    width: 100%;
+    max-width: 350px;
+    max-height: 150px;
   }
 }
 </style>

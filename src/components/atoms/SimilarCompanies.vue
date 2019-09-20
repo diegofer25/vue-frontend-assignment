@@ -33,6 +33,7 @@ export default {
   .title {
     text-transform: uppercase;
     border-bottom: 1px $lightblue solid;
+    white-space: nowrap;
   }
   img {
     width: 60px;

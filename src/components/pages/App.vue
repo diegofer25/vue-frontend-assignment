@@ -29,7 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 .app {
-  background-color: $skyblue;
+  background-color: $background;
   position: relative;
   .container {
     margin-top: 75px;

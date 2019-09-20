@@ -1,46 +1,39 @@
 <template>
   <div class="company-cards flex row justify-space-between">
-    <div class="activities flex column mr-md">
-      <div class="flex row">
-        <span class="title pa-md fill-width" v-text="'Activities'"></span>
-      </div>
-      <template v-for="(activity, index) of companyActivities">
-        <company-activity :activity="activity" :key="index" />
-      </template>
+    <div class="flex-item grow">
+      <company-activities />
     </div>
-    <div class="flex column">
-      <div class="flex-item grow">
-        <similar-companies />
+    <div class="flex-item grow">
+      <div class="flex column">
+        <div class="flex row mb-md">
+          <div class="flex-item grow">
+            <similar-companies />
+          </div>
+        </div>
+        <div class="flex row">
+          <div class="flex-item grow">
+            <company-spend-chart />
+          </div>
+        </div>
+        <div class="flex row">teste</div>
       </div>
-      <div class="flex-item grow">teste</div>
-      <div class="flex-item grow">teste</div>
     </div>
   </div>
 </template>
 
 <script>
-import { CompanyActivity, SimilarCompanies } from 'Components/atoms'
-import { mapGetters } from 'vuex'
+import { CompanyActivities, SimilarCompanies, CompanySpendChart } from 'Components/atoms'
 export default {
   name: 'CompanyCards',
   components: {
-    CompanyActivity,
-    SimilarCompanies
-  },
-  computed: {
-    ...mapGetters('app', ['companyActivities'])
-  },
+    CompanyActivities,
+    SimilarCompanies,
+    CompanySpendChart
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .company-cards {
-  .activities {
-    border: 1px $lightblue solid;
-    .title {
-      text-transform: uppercase;
-      background-color: $white;
-    }
-  }
 }
 </style>

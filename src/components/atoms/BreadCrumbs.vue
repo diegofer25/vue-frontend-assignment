@@ -1,7 +1,7 @@
 <template>
   <ul class="bread-crumbs">
     <li v-for="breadcrumb of breadcrumbs" :key="breadcrumb.link">
-      <router-link :to="breadcrumb.link" v-text="breadcrumb.text"/>
+      <router-link class="text-grey" :to="breadcrumb.link" v-text="breadcrumb.text"/>
     </li>
   </ul>
 </template>
@@ -26,7 +26,6 @@ export default {
   li {
     display: inline;
     a {
-      color: $grey;
       text-transform: uppercase;
       text-decoration: none;
       font-size: 13px;

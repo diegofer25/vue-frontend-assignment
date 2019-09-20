@@ -3,7 +3,7 @@
     <div class="flex column mr-lg">
       <side-menu />
     </div>
-    <div class="flex-item grow">
+    <div class="flex-item grow mb-md">
       <router-view />
     </div>
   </div>
