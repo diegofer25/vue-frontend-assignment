@@ -30,8 +30,7 @@ module.exports = {
       Images: path.resolve(__dirname, 'src', 'images'),
       Styles: path.resolve(__dirname, 'src', 'styles'),
       Plugins: path.resolve(__dirname, 'src', 'plugins'),
-      Mixins: path.resolve(__dirname, 'src', 'mixins'),
-      Layouts: path.resolve(__dirname, 'src', 'layouts')
+      Mixins: path.resolve(__dirname, 'src', 'mixins')
     }
   },
   entry: path.resolve(__dirname, 'src', 'index.js'),

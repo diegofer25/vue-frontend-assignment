@@ -1,5 +1,5 @@
-import { Home } from 'Components/pages'
-import { CompanyData, CompanyTable, CompanyPage } from 'Components/templates'
+import { Home } from 'Components/templates'
+import { CompanyData, CompanyTable, CompanyPage } from 'Components/organisms'
 
 export default [{
   path: '/',

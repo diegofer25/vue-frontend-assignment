@@ -1,3 +1,3 @@
-import HOME from './Home.vue'
+import APP from './App.vue'
 
-export const Home = HOME
+export const App = APP

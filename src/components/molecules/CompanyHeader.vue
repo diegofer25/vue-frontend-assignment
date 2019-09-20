@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <div class="company-description">
+    <div class="company-description mt-md">
       <p :class="{ ['view-less']: !viewMore }" v-text="company.description"></p>
       <a class="view-more" v-if="!viewMore" href="javascript:void(0)" @click.stop="viewMore = true">View More</a>
     </div>
@@ -36,7 +36,10 @@ export default {
 .company-header {
   .company-logo {
     border-radius: 10px;
-    max-width: 75px;
+    max-width: 40px;
+    padding: 20px;
+    background: $white;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
   .company-name {
     font-weight: 100;

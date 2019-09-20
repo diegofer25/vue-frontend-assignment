@@ -1,5 +1,5 @@
 <template>
-  <div class="default-layout flex column">
+  <div class="app flex column">
     <app-header />
     <div class="container flex column">
       <div class="flex row">
@@ -16,6 +16,7 @@
 <script>
 import { BreadCrumbs } from 'Components/atoms'
 import { AppHeader, AppFooter } from 'Components/molecules'
+
 export default {
   name: 'Default',
   components: {
@@ -27,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.default-layout {
+.app {
   position: relative;
   .container {
     margin-top: 75px;

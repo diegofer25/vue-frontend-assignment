@@ -7,27 +7,15 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import { breadcrumbs } from 'Mixins'
+
 export default {
   name: 'BreadCrumbs',
-  watch:{
-    $route ($route) {
-      this.breadcrumbs = this.setBreadCrumbs($route)
-    }
-  },
-  data: () => ({
-    breadcrumbs: []
-  }),
-  created () {
-    this.breadcrumbs = this.setBreadCrumbs(this.$route)
-  },
-  methods: {
-    setBreadCrumbs ({ matched }) {
-      return matched.map(route => ({
-        text: route.name,
-        link: route.path || '/'
-      }))
-    }
-  },
+  mixins: [breadcrumbs],
+  computed: {
+    ...mapState('layout', ['breadcrumbs'])
+  }
 }
 </script>
 

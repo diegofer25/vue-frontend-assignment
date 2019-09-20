@@ -4,14 +4,7 @@
       <company-header />
     </div>
     <div class="flex-item grow">
-      <div class="flex row">
-        <div class="flex column"></div>
-        <div class="flex column">
-          <div class="flex-item grow"></div>
-          <div class="flex-item grow"></div>
-          <div class="flex-item grow"></div>
-        </div>
-      </div>
+
     </div>
   </div>
 </template>

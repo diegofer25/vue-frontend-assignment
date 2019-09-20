@@ -3,14 +3,14 @@ import Vue from 'vue';
 import router from 'Router'
 import store from 'Store'
 
-import ImageLoader from 'Plugins/image-loader'
-Vue.use(ImageLoader)
+import ResponsiveImageLoader from 'Plugins/responsive-image-loader'
+Vue.use(ResponsiveImageLoader)
 
-import DefaultLayout from 'Layouts/default.vue';
+import { App } from 'Components/pages';
 
 new Vue({
   store,
   router,
-  render: createElement => createElement(DefaultLayout),
+  render: createElement => createElement(App),
   el: '#app'
 });

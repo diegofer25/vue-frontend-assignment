@@ -1,7 +1,3 @@
-import COMPANY_DATA from './CompanyData.vue'
-import COMPANY_TABLE from './CompanyTable.vue'
-import COMPANY_PAGE from './CompanyPage.vue'
+import HOME from './Home.vue'
 
-export const CompanyData = COMPANY_DATA
-export const CompanyTable = COMPANY_TABLE
-export const CompanyPage = COMPANY_PAGE
+export const Home = HOME
