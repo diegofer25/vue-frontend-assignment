@@ -6,7 +6,7 @@ export default {
     state.width = width
   },
 
-  SET_HEIGHT: (state, height) => {
-    state.height = height
+  SET_BREAKPOINTS: (state, breakPoints) => {
+    state.breakPoints = breakPoints
   }
 }

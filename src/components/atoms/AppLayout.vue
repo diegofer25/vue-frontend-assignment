@@ -1,5 +1,5 @@
 <template>
-  <div ref="app" class="app-layout">
+  <div class="app-layout">
     <slot />
   </div>
 </template>
@@ -8,8 +8,8 @@
 import { mapActions } from 'vuex'
 export default {
   name: 'AppLayout',
-  mounted () {
-    this.$refs.app.addEventListener('resize', this.onResize)
+  created () {
+    window.addEventListener('resize', this.onResize)
   },
   methods: {
     ...mapActions('layout', ['onResize'])
