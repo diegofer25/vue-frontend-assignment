@@ -1,6 +1,6 @@
 <template>
   <div class="flex row">
-    <div class="flex column">
+    <div class="flex column mr-lg">
       <side-menu />
     </div>
     <div class="flex-item grow">
@@ -17,5 +17,7 @@ export default {
   components: {
     SideMenu
   }
-};
+}
 </script>
+
+
