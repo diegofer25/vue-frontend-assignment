@@ -10,19 +10,19 @@
 export default {
   name: 'BreadCrumbs',
   watch:{
-    $route ({ matched }){
-      this.breadcrumbs = this.setBreadCrumbs(matched)
+    $route ($route) {
+      this.breadcrumbs = this.setBreadCrumbs($route)
     }
   },
   data: () => ({
     breadcrumbs: []
   }),
   created () {
-    this.breadcrumbs = this.setBreadCrumbs(this.$route.matched)
+    this.breadcrumbs = this.setBreadCrumbs(this.$route)
   },
   methods: {
-    setBreadCrumbs (routes) {
-      return routes.map(route => ({
+    setBreadCrumbs ({ matched }) {
+      return matched.map(route => ({
         text: route.name,
         link: route.path || '/'
       }))
@@ -41,6 +41,7 @@ export default {
       color: $grey;
       text-transform: uppercase;
       text-decoration: none;
+      font-size: 13px;
     }
     &+li:before {
       padding: 8px;
