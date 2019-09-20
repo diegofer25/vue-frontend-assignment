@@ -1,6 +1,8 @@
 <template>
-  <div class="app flex row wrap justify-center">
-    <app-header />
+  <app-layout class="app flex row wrap justify-center">
+    <div class="flex-item grow">
+      <app-header />
+    </div>
     <div class="container flex column">
       <div class="flex row">
         <bread-crumbs />
@@ -9,20 +11,23 @@
         <router-view />
       </div>
     </div>
-    <app-footer />
-  </div>
+    <div class="flex-item grow">
+      <app-footer />
+    </div>
+  </app-layout>
 </template>
 
 <script>
-import { BreadCrumbs } from 'Components/atoms'
+import { BreadCrumbs, AppLayout } from 'Components/atoms'
 import { AppHeader, AppFooter } from 'Components/molecules'
 
 export default {
   name: 'Default',
   components: {
-    BreadCrumbs,
+    AppLayout,
     AppHeader,
-    AppFooter
+    AppFooter,
+    BreadCrumbs
   }
 }
 </script>

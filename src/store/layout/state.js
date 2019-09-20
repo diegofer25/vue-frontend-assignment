@@ -1,3 +1,5 @@
 export default {
-  breadcrumbs: []
+  breadcrumbs: [],
+  width: window.innerWidth,
+  height: window.innerHeight
 }

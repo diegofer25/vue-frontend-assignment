@@ -1,5 +1,5 @@
 <template>
-  <div class="company-page flex column px-lg">
+  <div class="company-page flex column">
     <div class="flex row">
       <company-header />
     </div>
