@@ -1,5 +1,5 @@
 import { Home } from 'Components/pages'
-import { CompanyData } from 'Components/templates'
+import { CompanyData, CompanyTable, CompanyPage } from 'Components/templates'
 
 export default [{
   path: '/',
@@ -9,5 +9,13 @@ export default [{
     path: '/company-data',
     name: 'company data',
     component: CompanyData
+  }, {
+    path: '/company-table',
+    name: 'company table',
+    component: CompanyTable
+  }, {
+    path: '/company-page',
+    name: 'company page',
+    component: CompanyPage
   }]
 }]
