@@ -1,41 +1,42 @@
 export default {
-  company: {
+  company: 'Microsoft',
+  companies: [{
     name: 'Microsoft',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     location: 'Redmond, WA USA',
     imageLogo: 'squares',
     activities: [{
-      timestamp: '',
+      timestamp: '8 days ago',
       image: 'content-delivery',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
     }, {
-      timestamp: '',
+      timestamp: '10 days ago',
       image: 'dns',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
     }, {
-      timestamp: '',
+      timestamp: '12 days ago',
       image: 'performance-monitoring',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
     }, {
-      timestamp: '',
+      timestamp: '14 days ago',
       image: 'saas',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
     }, {
-      timestamp: '',
+      timestamp: '16 days ago',
       image: 'traffic-management',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
     }, {
-      timestamp: '',
+      timestamp: '18 days ago',
       image: 'video-platform',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
     }, {
-      timestamp: '',
+      timestamp: '20 days ago',
       image: 'waf-d-dos-security',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
     }, {
-      timestamp: '',
+      timestamp: '22 days ago',
       image: 'content-delivery',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+      description: 'Lorem ipsum dolor sit amet'
     }],
     similars: [{
       image: 'logo',
@@ -59,5 +60,5 @@ export default {
         image: 'logo-copy-2'
       }]
     }
-  }
+  }]
 }

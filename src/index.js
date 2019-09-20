@@ -4,7 +4,10 @@ import router from 'Router'
 import store from 'Store'
 
 import ResponsiveImageLoader from 'Plugins/responsive-image-loader'
-Vue.use(ResponsiveImageLoader)
+Vue.use(ResponsiveImageLoader, {
+  tablet: 600,
+  desktop: 1264
+})
 
 import { App } from 'Components/pages';
 

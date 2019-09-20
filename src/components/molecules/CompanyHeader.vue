@@ -20,11 +20,11 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   name: 'CompanyHeader',
   computed: {
-    ...mapState('app', ['company'])
+    ...mapGetters('app', { company: 'selectedCompany' })
   },
   data: () => ({
     viewMore: false

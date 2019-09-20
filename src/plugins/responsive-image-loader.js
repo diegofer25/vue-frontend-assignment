@@ -1,9 +1,9 @@
 export default {
-  install: (Vue) => {
+  install: (Vue, { tablet, desktop }) => {
     const alias =
-      window.innerWidth > 1264
+      window.innerWidth >= desktop
       ? '@3x'
-      : window.innerWidth > 600
+      : window.innerWidth >= tablet
       ? '@2x'
       : ''
     Vue.prototype.$loadImage = (image, ext) => {
