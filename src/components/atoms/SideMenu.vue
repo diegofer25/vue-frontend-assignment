@@ -32,6 +32,7 @@ aside.side-menu {
   border-radius: 5px;
   background-color: $white;
   a.menu-item {
+    position: relative;
     min-width: 200px;
     &:not(:last-child) {
       border-bottom: 1px $lightblue solid;
@@ -48,11 +49,24 @@ aside.side-menu {
     color: $black;
     text-decoration: none;
     color: $secondary;
-    border-left: 3px $transparent solid;
     &.router-link-exact-active {
-      border-left-color: $primary;
       background-color: $lightgrey;
       color: $black;
+      transition: 350ms ease all;
+      &:before {
+        height: 100%;
+        bottom: 0;
+      }
+    }
+    &:before {
+      content: '';
+      height: 0;
+      width: 3px;
+      bottom: 50%;
+      left: 0;
+      position: absolute;
+      background: $primary;
+      transition: 350ms ease all;
     }
   }
 }

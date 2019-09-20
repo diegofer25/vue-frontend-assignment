@@ -1,9 +1,7 @@
 <template>
   <app-layout class="app flex row wrap justify-center">
-    <div class="flex-item grow">
-      <app-header />
-    </div>
-    <div class="container flex column">
+    <app-header />
+    <div class="container flex column fill-width">
       <div class="flex row">
         <bread-crumbs />
       </div>
@@ -11,9 +9,7 @@
         <router-view />
       </div>
     </div>
-    <div class="flex-item grow">
-      <app-footer />
-    </div>
+    <app-footer />
   </app-layout>
 </template>
 

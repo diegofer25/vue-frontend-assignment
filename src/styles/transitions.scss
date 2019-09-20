@@ -1,0 +1,46 @@
+.fade {
+
+  &-scale,
+  &-slide-up,
+  &-slide-down {
+
+    &-enter-active,
+    &-leave-active {
+      transition: 500ms all;
+    }
+
+    &-leave-to,
+    &-enter {
+      position: absolute;
+      opacity: 0;
+    }
+  }
+
+  &-slide-up {
+    &-leave-to {
+      transform: translateY(-100vh);
+    }
+
+    &-enter {
+      transform: translateY(100vh);
+    }
+  }
+
+  &-slide-down {
+    &-leave-to {
+      transform: translateY(100vh);
+    }
+
+    &-enter {
+      transform: translateY(-100vh);
+    }
+  }
+
+  &-scale {
+
+    &-leave-to,
+    &-enter {
+      transform: scale(0);
+    }
+  }
+}

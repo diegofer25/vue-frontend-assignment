@@ -10,14 +10,6 @@ $values: (("none", 0),
   ("lg", 24px),
   ("xl", 48px));
 
-.fill-height {
-  height: 100%;
-}
-
-.fill-width {
-  width: 100%;
-}
-
 @each $spacing in $spacings {
   $spacingKey: nth($spacing, 1);
   $spacingValue: nth($spacing, 2);

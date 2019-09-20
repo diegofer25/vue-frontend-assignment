@@ -1,5 +1,5 @@
 <template>
-  <div class="company-table flex column pa-lg">
+  <div class="company-table flex column pa-lg bg-white">
     Company Table
   </div>
 </template>
@@ -12,6 +12,5 @@ export default {
 
 <style lang="scss" scoped>
 .company-table {
-  width: 900px;
 }
 </style>
