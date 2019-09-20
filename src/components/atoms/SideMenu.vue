@@ -1,6 +1,12 @@
 <template>
   <aside class="side-menu flex column">
-    <router-link v-for="item of $options.items" :key="item.text" class="menu-item flex row pa-lg" v-text="item.text" :to="item.link"/>
+    <router-link
+      v-for="item of $options.items"
+      :key="item.text"
+      class="menu-item flex row pa-lg"
+      v-text="item.text"
+      :to="item.link"
+    />
   </aside>
 </template>
 
@@ -22,19 +28,30 @@ export default {
 
 <style lang="scss" scoped>
 aside.side-menu {
-  border: 1px $grey solid;
+  border: 1px $lightblue solid;
   border-radius: 5px;
+  background-color: $white;
   a.menu-item {
     min-width: 200px;
     &:not(:last-child) {
-      border-bottom: 1px $grey solid;
+      border-bottom: 1px $lightblue solid;
+    }
+    &:first-child {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    &:last-child {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
     text-transform: uppercase;
     color: $black;
     text-decoration: none;
     color: $secondary;
+    border-left: 3px $transparent solid;
     &.router-link-exact-active {
-      border-left: 3px $primary solid;
+      border-left-color: $primary;
+      background-color: $lightgrey;
       color: $black;
     }
   }
