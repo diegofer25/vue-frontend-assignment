@@ -3,3 +3,11 @@
 @import "./colors.scss";
 @import "./flexbox.scss";
 @import "./spacing.scss";
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+html,
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}

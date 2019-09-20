@@ -1,8 +1,13 @@
 $colors-list: (("primary", $primary),
+  ("secondary", $secondary),
+  ("skyblue", $skyblue),
+  ("white", $white),
+  ("lightblue", $lightblue),
   ("lightgrey", $lightgrey),
   ("grey", $grey),
+  ("darkgrey", $darkgrey),
   ("black", $black),
-  ("secondary", $secondary));
+  ("transparent", $transparent));
 
 @each $color in $colors-list {
   $name: nth($color, 1);
