@@ -1,5 +1,5 @@
 <template>
-  <div class="company-activities flex column mr-md">
+  <div class="company-activities flex column">
     <div class="flex row">
       <span class="title pa-md bg-white fill-width" v-text="'Activities'"></span>
     </div>

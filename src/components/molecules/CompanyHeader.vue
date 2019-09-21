@@ -58,8 +58,8 @@ export default {
       position: absolute;
       right: 0;
       top: 32px;
-      background-image: linear-gradient(to right, $transparent, $background, $background, $background, $background);
-      padding-left: 30px;
+      background-image: linear-gradient(to right, $transparent, $background, $background);
+      padding-left: 80px;
     }
     .view-less {
       overflow: hidden;

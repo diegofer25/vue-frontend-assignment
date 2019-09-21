@@ -1,6 +1,6 @@
 <template>
   <div class="home flex row" :class="{ wrap: mdAndDown }">
-    <div class="flex column mr-lg">
+    <div class="flex column mb-md mr-lg">
       <side-menu />
     </div>
     <div class="flex-item grow mb-md">

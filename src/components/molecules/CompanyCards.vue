@@ -1,6 +1,6 @@
 <template>
-  <div class="company-cards flex row justify-space-between">
-    <div class="flex-item grow">
+  <div class="company-cards flex row justify-space-between" :class="{ wrap: isMobile }">
+    <div class="flex-item grow" :class="{ ['mr-md']: !isMobile }">
       <company-activities />
     </div>
     <div class="flex-item grow">
@@ -32,6 +32,7 @@ import {
   CompanySpendChart,
   CompanySpendHistory
 } from 'Components/atoms'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'CompanyCards',
@@ -40,6 +41,9 @@ export default {
     SimilarCompanies,
     CompanySpendChart,
     CompanySpendHistory
+  },
+  computed: {
+    ...mapGetters('layout', ['isMobile'])
   }
 }
 </script>

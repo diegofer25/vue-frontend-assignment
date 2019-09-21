@@ -1,4 +1,6 @@
 .fade {
+  overflow: hidden;
+  position: absolute;
 
   &-scale,
   &-slide-up,

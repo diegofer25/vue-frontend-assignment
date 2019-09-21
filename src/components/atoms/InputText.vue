@@ -71,13 +71,16 @@ export default {
     font-size: 13px;
   }
   input {
-    height: 30px;
+    width: 50%;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
   }
   input, textarea {
     border: none;
     border-radius: 3px;
     box-shadow:  0 0 5px rgb(199, 199, 199), 0 0 5px rgb(255, 255, 255);
-    text-indent: 10px;
+    padding: 10px;
     &::placeholder {
       opacity: 0.5;
       color: $grey;
