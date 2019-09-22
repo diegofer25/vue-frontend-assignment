@@ -13,19 +13,24 @@
     </div>
     <div class="flex row mb-md">
       <input-field
-        type="text"
+        ref="companyspend"
+        type="number"
         label="Company Spend"
         placeholder="e.g. $150,000"
         v-model="form.companySpend"
+        :error="companySpendValidator"
+        @blur="forceFormValidationOnBlur"
       />
     </div>
     <div class="flex row mb-md">
       <input-field
+        ref="spendability"
         type="text"
         label="Company Spend Ability"
         placeholder="e.g. $150,000 - $300,000"
         v-model="form.companySpendAbility"
-        :error="spendAbilityError"
+        :error="spendAbilityValidator"
+        @blur="forceFormValidationOnBlur"
       />
     </div>
     <div class="flex row">
@@ -43,6 +48,7 @@
 
 <script>
 import { InputField } from 'Components/atoms'
+import { hasLetters, moreThanLimit, isNumber, isFocused } from 'Utils/validations'
 
 export default {
   name: 'CompanyData',
@@ -50,9 +56,34 @@ export default {
     InputField
   },
   computed: {
-    spendAbilityError () {
-      if (this.form.companySpendAbility.length > 3) {
-        return 'Não pode ser maior que 3'
+    companySpendValidator () {
+      const { companySpend } = this.form
+      if (hasLetters(companySpend)) {
+        return 'This field can not contains letters'
+      } else if (!companySpend && this.$refs.companyspend && !isFocused(this.$refs.companyspend.$el.querySelector('input'))) {
+        return 'This field can not be empty or zero'
+      }
+      return ''
+    },
+
+    spendAbilityValidator () {
+      const { companySpendAbility } = this.form
+      if (hasLetters(companySpendAbility)) {
+        return 'This field can not contains letters'
+      }
+      let [ min, max ] = companySpendAbility.split('-')
+      if (min && max) {
+        min = Number(min.split('$').join(''))
+        max = Number(max.split('$').join(''))
+        if (isNumber(min) && isNumber(max)) {
+          if (min >= max) {
+            return 'The first value must be greater than second value'
+          }
+        } else {
+          return 'Please inform two valid numbers separate by hyphen e.g 150 - 300'
+        }
+      } else if (moreThanLimit(companySpendAbility, 0) && !isFocused(this.$refs.spendability.$el.querySelector('input'))) {
+        return 'Please inform two values separate by hyphen e.g 150 - 300'
       }
       return ''
     }
@@ -64,7 +95,12 @@ export default {
       companySpendAbility: '',
       notes: ''
     }
-  })
+  }),
+  methods: {
+    forceFormValidationOnBlur () {
+      this.form = { ...this.form }
+    }
+  },
 }
 </script>
 
@@ -75,6 +111,19 @@ export default {
   background-color: $white;
   .instruction {
     color: $darkgrey;
+  }
+}
+</style>
+
+<style lang="scss">
+.company-data {
+  .input-field {
+    input {
+      width: 50%;
+      @media (max-width: 600px) {
+        width: calc(100% - 24px);
+      }
+    }
   }
 }
 </style>

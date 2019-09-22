@@ -1,5 +1,5 @@
 <template>
-  <aside class="side-menu flex row" :class="rowClass">
+  <aside class="side-menu flex" :class="rowClass">
     <div class="flex-item grow" v-for="item of $options.items">
       <router-link
         :key="item.text"
@@ -30,15 +30,16 @@ export default {
     ...mapGetters('layout', ['mdAndDown', 'isMobile']),
 
     rowClass () {
-      return { wrap: !this.mdAndDown, 'no-wrap': this.mdAndDown }
+      return { column: !this.mdAndDown, 'row': this.mdAndDown }
     },
 
     itemClass () {
       return {
-        'fix-width': !this.mdAndDown,
+        'fix-width': !this.isMobile,
         'pa-sm': this.isMobile,
         'pa-md': this.mdAndDown && !this.isMobile,
-        'pa-lg': !this.mdAndDown }
+        'pa-lg': !this.mdAndDown
+      }
     }
   },
 }

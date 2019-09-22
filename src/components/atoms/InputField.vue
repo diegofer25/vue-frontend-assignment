@@ -6,6 +6,7 @@
       :type="type"
       :value="value"
       @input="$emit('input', $event.target.value)"
+      @blur="$emit('blur', $event.target.value)"
       :name="label"
       :placeholder="placeholder"
       :class="{ error }"
@@ -18,6 +19,7 @@
       :rows="rows"
       :value="value"
       @input="$emit('input', $event.target.value)"
+      @blur="$emit('blur', $event.target.value)"
       :placeholder="placeholder"
     ></textarea>
     <span :class="{ error }" class="text-error" v-text="error"></span>
@@ -79,10 +81,6 @@ export default {
     font-size: 13px;
   }
   input {
-    width: 50%;
-    @media (max-width: 600px) {
-      width: 100%;
-    }
     &[type='number'] {
       -moz-appearance:textfield;
     }

@@ -1,5 +1,5 @@
 <template>
-  <div class="home flex row" :class="{ wrap: mdAndDown }">
+  <div class="home flex row" :class="{ wrap: mdAndDown, 'fix-width': mdAndDown }">
     <div :class="{ 'mr-lg': !mdAndDown, 'fill-width': mdAndDown }" class="flex column mb-md">
       <side-menu />
     </div>
