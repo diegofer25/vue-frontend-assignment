@@ -1,6 +1,6 @@
 <template>
   <div class="home flex row" :class="{ wrap: mdAndDown }">
-    <div class="flex column mb-md mr-lg">
+    <div :class="{ 'mr-lg': !mdAndDown, 'fill-width': mdAndDown }" class="flex column mb-md">
       <side-menu />
     </div>
     <div class="flex-item grow mb-md">
@@ -32,8 +32,10 @@ export default {
   beforeRouteUpdate (to, from, next) {
     if (from.path === '/' || to.path === '/') {
       this.direction = 'scale'
-    } else {
+    } else if (!this.mdAndDown) {
       this.direction = to.meta.position < from.meta.position ? 'slide-down' : 'slide-up'
+    } else {
+      this.direction = to.meta.position < from.meta.position ? 'slide-left' : 'slide-right'
     }
     next()
   }

@@ -1,17 +1,18 @@
 <template>
-  <div class="input-text flex column">
+  <div class="input-field flex column mb-sm">
     <label class="mb-xs" v-if="label" :for="label" v-text="label"></label>
     <input
-      v-if="type === 'text'"
-      type="text"
+      v-if="type !== 'textarea'"
+      :type="type"
       :value="value"
       @input="$emit('input', $event.target.value)"
       :name="label"
       :placeholder="placeholder"
+      :class="{ error }"
     />
     <textarea
       v-else
-      :class="{ noresize: !resize }"
+      :class="{ noresize: !resize, error }"
       :name="label"
       :cols="cols"
       :rows="rows"
@@ -19,6 +20,7 @@
       @input="$emit('input', $event.target.value)"
       :placeholder="placeholder"
     ></textarea>
+    <span :class="{ error }" class="text-error" v-text="error"></span>
   </div>
 </template>
 
@@ -35,7 +37,7 @@ export default {
       type: String,
       required: true,
       validator: (value) => {
-        return ['text', 'textarea'].indexOf(value) !== -1
+        return ['text', 'number', 'textarea'].indexOf(value) !== -1
       }
     },
     label: {
@@ -57,14 +59,20 @@ export default {
     resize: {
       type: Boolean,
       default: true
+    },
+    error: {
+      type: String,
+      default: ''
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.input-text {
+@import "Styles/animations.scss";
+.input-field {
   min-width: 100%;
+  position: relative;
   label {
     text-transform: uppercase;
     color: $grey;color: $grey;
@@ -74,6 +82,14 @@ export default {
     width: 50%;
     @media (max-width: 600px) {
       width: 100%;
+    }
+    &[type='number'] {
+      -moz-appearance:textfield;
+    }
+    &[type=number]::-webkit-inner-spin-button,
+    &[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
   }
   input, textarea {
@@ -87,6 +103,22 @@ export default {
     }
     &.noresize {
       resize: none;
+    }
+    &.error {
+      background-color: $lightred;
+      border: 1px $error solid;
+    }
+  }
+  span {
+    position: absolute;
+    height: 0;
+    font-size: 13px;
+    font-weight: bold;
+    opacity: 0;
+    bottom: -3px;
+    &.error {
+      opacity: 1;
+      animation: mymove 0.4s;
     }
   }
 }

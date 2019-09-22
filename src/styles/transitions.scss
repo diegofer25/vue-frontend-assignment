@@ -4,7 +4,9 @@
 
   &-scale,
   &-slide-up,
-  &-slide-down {
+  &-slide-down,
+  &-slide-left,
+  &-slide-right {
 
     &-enter-active,
     &-leave-active {
@@ -35,6 +37,26 @@
 
     &-enter {
       transform: translateY(-100vh);
+    }
+  }
+
+  &-slide-left {
+    &-leave-to {
+      transform: translateX(-100vw);
+    }
+
+    &-enter {
+      transform: translateX(100vw);
+    }
+  }
+
+  &-slide-right {
+    &-leave-to {
+      transform: translateX(100vw);
+    }
+
+    &-enter {
+      transform: translateX(-100vw);
     }
   }
 

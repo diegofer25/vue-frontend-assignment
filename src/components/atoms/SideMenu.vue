@@ -1,16 +1,19 @@
 <template>
-  <aside class="side-menu flex column">
-    <router-link
-      v-for="item of $options.items"
-      :key="item.text"
-      class="menu-item flex row pa-lg"
-      v-text="item.text"
-      :to="item.link"
-    />
+  <aside class="side-menu flex row" :class="rowClass">
+    <div class="flex-item grow" v-for="item of $options.items">
+      <router-link
+        :key="item.text"
+        class="menu-item flex row"
+        :class="itemClass"
+        v-text="item.text"
+        :to="item.link"
+      />
+    </div>
   </aside>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   name: 'SideMenu',
   items: [{
@@ -22,7 +25,22 @@ export default {
   }, {
     text: 'company page',
     link: '/company-page'
-  }]
+  }],
+  computed: {
+    ...mapGetters('layout', ['mdAndDown', 'isMobile']),
+
+    rowClass () {
+      return { wrap: !this.mdAndDown, 'no-wrap': this.mdAndDown }
+    },
+
+    itemClass () {
+      return {
+        'fix-width': !this.mdAndDown,
+        'pa-sm': this.isMobile,
+        'pa-md': this.mdAndDown && !this.isMobile,
+        'pa-lg': !this.mdAndDown }
+    }
+  },
 }
 </script>
 
@@ -33,7 +51,9 @@ aside.side-menu {
   background-color: $white;
   a.menu-item {
     position: relative;
-    min-width: 200px;
+    &.fix-width {
+      min-width: 200px;
+    }
     &:not(:last-child) {
       border-bottom: 1px $lightblue solid;
     }
