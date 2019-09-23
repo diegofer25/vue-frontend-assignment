@@ -5,22 +5,18 @@
       v-if="type !== 'textarea'"
       :type="type"
       :value="value"
-      @input="$emit('input', $event.target.value)"
-      @blur="$emit('blur', $event.target.value)"
+      v-bind="$attrs"
+      v-on="inputListeners"
       :name="label"
-      :placeholder="placeholder"
       :class="{ error }"
     />
     <textarea
       v-else
       :class="{ noresize: !resize, error }"
       :name="label"
-      :cols="cols"
-      :rows="rows"
       :value="value"
-      @input="$emit('input', $event.target.value)"
-      @blur="$emit('blur', $event.target.value)"
-      :placeholder="placeholder"
+      v-bind="$attrs"
+      v-on="inputListeners"
     ></textarea>
     <span :class="{ error }" class="text-error" v-text="error"></span>
   </div>
@@ -46,18 +42,6 @@ export default {
       type: String,
       default: ''
     },
-    placeholder: {
-      type: String,
-      default: ''
-    },
-    rows: {
-      type: String,
-      default: '1'
-    },
-    cols: {
-      type: String,
-      default: '1'
-    },
     resize: {
       type: Boolean,
       default: true
@@ -65,6 +49,17 @@ export default {
     error: {
       type: String,
       default: ''
+    }
+  },
+  computed: {
+    inputListeners: function () {
+      var vm = this
+      return {
+        ...this.$listeners,
+        input: function (event) {
+          vm.$emit('input', event.target.value)
+        }
+      }
     }
   }
 }

@@ -3,11 +3,11 @@ export const hasLetters = (string) => {
 }
 
 export const moreThanLimit = (string, limit) => {
-  return string.length > limit
+  return string.length <= limit
 }
 
-export const isNumber = (number) => {
-  return !Number.isNaN(Number(number))
+export const isNumber = (string) => {
+  return !Number.isNaN(Number(string))
 }
 
 export const isFocused = (element) => {

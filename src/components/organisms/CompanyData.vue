@@ -5,21 +5,24 @@
     </div>
     <div class="flex row mb-md">
       <input-field
+        ref="name"
         type="text"
         label="Company Name"
         placeholder="e.g. Your Company Name"
-        v-model="form.companyName"
+        v-model="name.value"
+        :error="nameValidator"
+        @blur="validateFieldOnBlur('name')"
       />
     </div>
     <div class="flex row mb-md">
       <input-field
-        ref="companyspend"
-        type="number"
+        ref="spend"
+        type="text"
         label="Company Spend"
         placeholder="e.g. $150,000"
-        v-model="form.companySpend"
-        :error="companySpendValidator"
-        @blur="forceFormValidationOnBlur"
+        v-model="spend.value"
+        :error="spendValidator"
+        @blur="validateFieldOnBlur('spend')"
       />
     </div>
     <div class="flex row mb-md">
@@ -28,9 +31,9 @@
         type="text"
         label="Company Spend Ability"
         placeholder="e.g. $150,000 - $300,000"
-        v-model="form.companySpendAbility"
+        v-model="spendAbility.value"
         :error="spendAbilityValidator"
-        @blur="forceFormValidationOnBlur"
+        @blur="validateFieldOnBlur('spendAbility')"
       />
     </div>
     <div class="flex row">
@@ -38,40 +41,69 @@
         type="textarea"
         label="Notes"
         placeholder="e.g. Good Tech Company"
-        rows="10"
+        :rows="10"
         :resize="false"
-        v-model="form.notes"
+        v-model="notes.value"
+        @focus="modal = true"
       />
     </div>
+    <app-modal v-model="modal">
+      <div class="additional-notes flex column pa-lg">
+        <div class="flex-item grow">
+          <input-field
+            type="textarea"
+            label="Additional Notes"
+            placeholder="e.g. Good Tech Company"
+            :rows="10"
+            :resize="false"
+            v-model="notes.value"
+          />
+        </div>
+        <div class="flex row justify-flex-end">
+          <btn text="save" color="primary" @click="modal = false" text-color="white"/>
+        </div>
+      </div>
+    </app-modal>
   </div>
 </template>
 
 <script>
-import { InputField } from '@/components/atoms'
+import { InputField, AppModal, Btn } from '@/components/atoms'
 import { hasLetters, moreThanLimit, isNumber, isFocused } from '@/utils/validations'
 
 export default {
   name: 'CompanyData',
   components: {
-    InputField
+    InputField,
+    AppModal,
+    Btn
   },
   computed: {
-    companySpendValidator () {
-      const { companySpend } = this.form
-      if (hasLetters(companySpend)) {
+    nameValidator () {
+      if (!this.name.value && this.isFocusedInput('name')) {
+        return 'Please type your company name'
+      }
+      return ''
+    },
+
+    spendValidator () {
+      const { value } = this.spend
+      if (hasLetters(value)) {
         return 'This field can not contains letters'
-      } else if (!companySpend && this.$refs.companyspend && !isFocused(this.$refs.companyspend.$el.querySelector('input'))) {
-        return 'This field can not be empty or zero'
+      } else if (!value && this.isFocusedInput('spend')) {
+        return 'This field can not be empty'
+      } else if (value && isNumber(value)) {
+        return Number(value) <= 0 ? 'The spend can not be equal or less than zero' : ''
       }
       return ''
     },
 
     spendAbilityValidator () {
-      const { companySpendAbility } = this.form
-      if (hasLetters(companySpendAbility)) {
+      const { value } = this.spendAbility
+      if (hasLetters(value)) {
         return 'This field can not contains letters'
       }
-      let [ min, max ] = companySpendAbility.split('-')
+      let [ min, max ] = value.split('-')
       if (min && max) {
         min = Number(min.split('$').join(''))
         max = Number(max.split('$').join(''))
@@ -80,23 +112,35 @@ export default {
             return 'The first value must be greater than second value'
           }
         }
-      } else if (moreThanLimit(companySpendAbility, 0) && !isFocused(this.$refs.spendability.$el.querySelector('input'))) {
+      } else if (!value && this.isFocusedInput('spendability')) {
+        return 'This field can not be empty or zero'
+      } else if (!value.includes('-') && this.isFocusedInput('spendability')) {
         return 'Please inform two values separate by hyphen e.g 150 - 300'
       }
       return ''
     }
   },
   data: () => ({
-    form: {
-      companyName: '',
-      companySpend: '',
-      companySpendAbility: '',
-      notes: ''
-    }
+    name: { value: '' },
+    spend: { value: '' },
+    spendAbility: { value: '' },
+    notes: { value: '' },
+    modal: false
   }),
   methods: {
-    forceFormValidationOnBlur () {
-      this.form = { ...this.form }
+    validateFieldOnBlur (field) {
+      this[field] = { ...this[field] }
+      if (field === 'spend') this.formatSpend()
+    },
+
+    isFocusedInput (ref) {
+      return this.$refs[ref] && !isFocused(this.$refs[ref].$el.querySelector('input'))
+    },
+
+    formatSpend () {
+      if (!this.spendValidator) {
+        this.spend.value = `$ ${this.spend.value.trim().split('$ ').join('')}`
+      }
     }
   },
 }
@@ -109,6 +153,14 @@ export default {
   background-color: $white;
   .instruction {
     color: $darkgrey;
+  }
+  .additional-notes {
+    background-color: $white;
+    width: 100%;
+    @media (min-width: 600px) {
+      max-height: calc(100vh / 4);
+      max-width: calc(100vw / 2);
+    }
   }
 }
 </style>
