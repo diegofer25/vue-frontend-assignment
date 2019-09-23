@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { CompanyHeader, CompanyCards } from 'Components/molecules'
+import { CompanyHeader, CompanyCards } from '@/components/molecules'
 export default {
   name: 'CompanyPage',
   components: {

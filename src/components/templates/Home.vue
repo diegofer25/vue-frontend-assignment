@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { SideMenu } from 'Components/atoms'
+import { SideMenu } from '@/components/atoms'
 import { mapGetters } from 'vuex'
 export default {
   name: 'Home',

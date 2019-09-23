@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import { BreadCrumbs, AppLayout } from 'Components/atoms'
-import { AppHeader, AppFooter } from 'Components/molecules'
+import { BreadCrumbs, AppLayout } from '@/components/atoms'
+import { AppHeader, AppFooter } from '@/components/molecules'
 
 export default {
   name: 'Default',

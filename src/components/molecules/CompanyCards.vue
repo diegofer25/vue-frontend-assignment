@@ -31,7 +31,7 @@ import {
   SimilarCompanies,
   CompanySpendChart,
   CompanySpendHistory
-} from 'Components/atoms'
+} from '@/components/atoms'
 import { mapGetters } from 'vuex'
 
 export default {

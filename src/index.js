@@ -1,15 +1,15 @@
 import 'Styles/main.scss';
 import Vue from 'vue';
-import router from 'Router'
+import router from '@/router'
 import store from 'Store'
 
-import ResponsiveImageLoader from 'Plugins/responsive-image-loader'
+import ResponsiveImageLoader from '@/plugins/responsive-image-loader'
 Vue.use(ResponsiveImageLoader, {
   tablet: 600,
   desktop: 1264
 })
 
-import { App } from 'Components/pages';
+import { App } from '@/components/pages';
 
 new Vue({
   store,

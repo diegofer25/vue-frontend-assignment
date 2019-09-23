@@ -8,7 +8,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { breadcrumbs } from 'Mixins'
+import { breadcrumbs } from '@/mixins'
 
 export default {
   name: 'BreadCrumbs',

@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import { InputField } from 'Components/atoms'
-import { hasLetters, moreThanLimit, isNumber, isFocused } from 'Utils/validations'
+import { InputField } from '@/components/atoms'
+import { hasLetters, moreThanLimit, isNumber, isFocused } from '@/utils/validations'
 
 export default {
   name: 'CompanyData',
@@ -79,8 +79,6 @@ export default {
           if (min >= max) {
             return 'The first value must be greater than second value'
           }
-        } else {
-          return 'Please inform two valid numbers separate by hyphen e.g 150 - 300'
         }
       } else if (moreThanLimit(companySpendAbility, 0) && !isFocused(this.$refs.spendability.$el.querySelector('input'))) {
         return 'Please inform two values separate by hyphen e.g 150 - 300'

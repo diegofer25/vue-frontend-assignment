@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { input } from 'Components/atoms'
+import { input } from '@/components/atoms'
 export default {
   name: 'InputText',
   props: {
